@@ -85,12 +85,12 @@ class SoCEstimator(hass.Hass):
             "gps_longitude": "sensor.gps_longitude", # GPS longitude sensor. Expects a float value.
             "dc_loads": "sensor.dc_loads", # DC loads sensor. Expects a float value. Real-time value in watts. Loads only (not solar production).
             "ac_volts": "sensor.watchdog_voltage_line_1", # AC Voltage sensor. Expects a float value. Real-time value in volts. Used to detect if the vehicle is on shore power. Optional, can be omitted.
+            "current_solar_production": "sensor.current_solar_production", # Current solar production sensor. Real-time value in watts.
             # Output sensors (the script will create these; but you can override the names if you want to)
             "average_load": "sensor.average_load", # Average load sensor. Creates a new sensor with the average load over the last 24 hours as calculated by the script. Not needed; but gives you the ability to add it to your dashboard.
             "calculated_energy_production_today_remaining": "sensor.calculated_energy_production_today_remaining", # Calculated energy production today remaining sensor. Expects a float value. Real-time value in watts.
             "calculated_energy_production_tomorrow": "sensor.calculated_energy_production_tomorrow", # Calculated energy production tomorrow sensor. Real-time value in watts.
             "time_until_charged": "sensor.time_until_charged", # Time until charged sensor. Outputs similar to other Home Assistant time sensors. i.e., "In 3 hours"
-            "current_solar_production": "sensor.current_solar_production", # Current solar production sensor. Real-time value in watts.
             "solar_production_delta": "sensor.solar_production_delta", # Solar production delta sensor. Tells you how much the forecast is being adjusted to account for historic actual data.  
             "expected_peak_soc_today": "sensor.expected_peak_soc_today", # Expected peak SOC today sensor. Outputs a percentage value (0-100). Shows the expected peak SOC for today based on the solar forecast.
             "expected_peak_soc_tomorrow": "sensor.expected_peak_soc_tomorrow", # Expected peak SOC tomorrow sensor. Outputs a percentage value (0-100). Shows the expected peak SOC for tomorrow based on the solar forecast.
