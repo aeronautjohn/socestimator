@@ -1127,11 +1127,20 @@ class SoCEstimator(hass.Hass):
             icon = charge_time_icon
 
         # Update the "Time Until Charged" sensor
-        set_sensor_state(self, self.sensors["time_until_charged"], time_until_charged, 
-                         {"icon": icon, "friendly_name": "Time Until Charged"})
+        self.set_state("sensor.time_until_charged", state=time_until_charged, attributes={
+            "icon": icon,
+            "friendly_name": "Time Until Charged",
+            "unique_id": "sensor_time_until_charged"
+        })
         
         # Update the "Charged Time" sensor
-        set_sensor_state(self, self.sensors["charged_time"], charged_time, {"icon": icon})
+        self.set_state("sensor.charged_time", state=charged_time, attributes={
+            "icon": icon,
+            "friendly_name": "Charged Time",
+            "unique_id": "sensor_charged_time"
+        })
+
+        self.log(f"Updated charge time sensors: Time Until Charged: {time_until_charged}, Charged Time: {charged_time}", level="DEBUG")
 
     def calculate_charge_time(self, current_soc, average_load):
         try:
